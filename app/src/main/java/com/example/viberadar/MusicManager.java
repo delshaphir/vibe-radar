@@ -20,6 +20,7 @@ public class MusicManager implements Runnable {
     private MusicPlayer drumPlayer;
 
     private Chord chordLogic;
+    private boolean warmVibes = false;
 
     /**
      * Manage playback (mood, tempo, rhythm)
@@ -29,7 +30,13 @@ public class MusicManager implements Runnable {
         chordLogic = new Chord();
         running = false;
         playing = false;
-        ukulelePlayer = new MusicPlayer(context, Sounds.MELODIES);
+
+        if (!warmVibes) {
+            ukulelePlayer = new MusicPlayer(context, Sounds.MELODIES);
+        }
+        else {
+            ukulelePlayer = new MusicPlayer(context, Sounds.WARMMELODIES);
+        }
 //        drumPlayer = new MusicPlayer(context, drumList);
     }
 
@@ -52,6 +59,10 @@ public class MusicManager implements Runnable {
 
     /// Change the vibe
     public void changeVibe(int warmth) {
+        if (warmth > 0){
+            warmVibes = true;
+        }
+        warmVibes = false;
     }
 
     /// Generates a random chord (for testing purposes)

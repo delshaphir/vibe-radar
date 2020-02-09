@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize MusicManager and thread
         manager = new MusicManager(this);
-        final Thread manThread = new Thread(manager);
-
-        manThread.start();
 
         //Assign Variable
         imageView = findViewById(R.id.image_view);
@@ -92,59 +89,61 @@ public class MainActivity extends AppCompatActivity {
     };
 
         public void onActivityResult2(boolean yeet) {
-            int warmth = 0;
+        int warmth = 0;
 
-            if (p.getVibrantSwatch() != null) {
-                color1button.setBackgroundColor(p.getVibrantSwatch().getRgb());
-                color1 = p.getVibrantSwatch().getRgb();
-                yeet = true;
-            }
-            else {
-                color1button.setText("Surprise Color");
-                color1button.setBackgroundColor(Color.BLUE);
-                color1 = Color.BLUE;
-                yeet = false;
-            }
-            int color1Red = (color1 >> 16) & 0xFF;
-            int color1Green = (color1 >> 8) & 0xFF;
-            int color1Blue = color1 & 0xFF;
-            warmth += isWarm(color1Red, color1Green, color1Blue) ? 1 : -1;
-
-            if (p.getMutedSwatch() != null) {
-                color2button.setBackgroundColor(p.getMutedSwatch().getRgb());
-                color2 = p.getMutedSwatch().getRgb();
-                yeet = true;
-            }
-            else {
-                color2button.setText("Surprise Color");
-                color2button.setBackgroundColor(Color.MAGENTA);
-                color2 = Color.MAGENTA;
-                yeet = false;
-            }
-            int color2Red = (color2 >> 16) & 0xFF;
-            int color2Green = (color2 >> 8) & 0xFF;
-            int color2Blue = color2 & 0xFF;
-            warmth += isWarm(color2Red, color2Green, color2Blue) ? 1 : -1;
-
-            if (p.getDarkVibrantSwatch() != null) {
-                color3button.setBackgroundColor(p.getDarkVibrantSwatch().getRgb());
-                color3 = p.getDarkVibrantSwatch().getRgb();
-                yeet = true;
-
-            }
-            else {
-                color3button.setText("Surprise Color");
-                color3button.setBackgroundColor(Color.YELLOW);
-                color3 = Color.YELLOW;
-                yeet = false;
-            }
-            int color3Red = (color3 >> 16) & 0xFF;
-            int color3Green = (color3 >> 8) & 0xFF;
-            int color3Blue = color3 & 0xFF;
-            warmth += isWarm(color3Red, color3Green, color3Blue) ? 1 : -1;
-            // Log.d("warmth", warmth + "");
-
-            manager.changeVibe(warmth);
+        if (p.getVibrantSwatch() != null) {
+            color1button.setBackgroundColor(p.getVibrantSwatch().getRgb());
+            color1 = p.getVibrantSwatch().getRgb();
+            yeet = true;
         }
+        else {
+            color1button.setText("Surprise Color");
+            color1button.setBackgroundColor(Color.BLUE);
+            color1 = Color.BLUE;
+            yeet = false;
+        }
+        int color1Red = (color1 >> 16) & 0xFF;
+        int color1Green = (color1 >> 8) & 0xFF;
+        int color1Blue = color1 & 0xFF;
+        warmth += isWarm(color1Red, color1Green, color1Blue) ? 1 : -1;
+
+        if (p.getMutedSwatch() != null) {
+            color2button.setBackgroundColor(p.getMutedSwatch().getRgb());
+            color2 = p.getMutedSwatch().getRgb();
+            yeet = true;
+        }
+        else {
+            color2button.setText("Surprise Color");
+            color2button.setBackgroundColor(Color.MAGENTA);
+            color2 = Color.MAGENTA;
+            yeet = false;
+        }
+        int color2Red = (color2 >> 16) & 0xFF;
+        int color2Green = (color2 >> 8) & 0xFF;
+        int color2Blue = color2 & 0xFF;
+        warmth += isWarm(color2Red, color2Green, color2Blue) ? 1 : -1;
+
+        if (p.getDarkVibrantSwatch() != null) {
+            color3button.setBackgroundColor(p.getDarkVibrantSwatch().getRgb());
+            color3 = p.getDarkVibrantSwatch().getRgb();
+            yeet = true;
+
+        }
+        else {
+            color3button.setText("Surprise Color");
+            color3button.setBackgroundColor(Color.YELLOW);
+            color3 = Color.YELLOW;
+            yeet = false;
+        }
+        int color3Red = (color3 >> 16) & 0xFF;
+        int color3Green = (color3 >> 8) & 0xFF;
+        int color3Blue = color3 & 0xFF;
+        warmth += isWarm(color3Red, color3Green, color3Blue) ? 1 : -1;
+
+        manager.changeVibe(warmth);
+
+        final Thread manThread = new Thread(manager);
+        manThread.start();
+    }
 
     }

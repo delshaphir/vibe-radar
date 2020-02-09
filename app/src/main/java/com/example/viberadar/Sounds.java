@@ -65,6 +65,34 @@ public class Sounds {
 
     final static List<int[]> MELODIES = Arrays.asList(C_MAJ, D_MIN, E_MIN, F_MAJ, G_MAJ, A_MIN, B_DIM);
 
+
+    final static int WARM1 = R.raw.warm1;
+    final static int WARM2 = R.raw.warm2;
+    final static int WARM3 = R.raw.warm3;
+    //final static List<Integer> C_MAJ = Arrays.asList(C_MAJ1, C_MAJ2, C_MAJ3);
+    final static int[] WARM = {WARM1, WARM2, WARM3};
+
+    final static int UPBEAT1 = R.raw.upbeat1;
+    final static int UPBEAT2 = R.raw.upbeat2;
+    final static int UPBEAT3 = R.raw.upbeat3;
+    //final static List<Integer> C_MAJ = Arrays.asList(C_MAJ1, C_MAJ2, C_MAJ3);
+    final static int[] UPBEAT = {UPBEAT1, UPBEAT2, UPBEAT3};
+
+    final static int LIVE1 = R.raw.live1;
+    final static int LIVE2 = R.raw.live2;
+    final static int LIVE3 = R.raw.live3;
+    //final static List<Integer> C_MAJ = Arrays.asList(C_MAJ1, C_MAJ2, C_MAJ3);
+    final static int[] LIVE = {LIVE1, LIVE2, LIVE3};
+
+    final static int CYCLE1 = R.raw.cycle1;
+    final static int CYCLE2 = R.raw.cycle2;
+    final static int CYCLE3 = R.raw.cycle3;
+    //final static List<Integer> C_MAJ = Arrays.asList(C_MAJ1, C_MAJ2, C_MAJ3);
+    final static int[] CYCLE = {CYCLE1, CYCLE2, CYCLE3};
+
+
+    final static List<int[]> WARMMELODIES = Arrays.asList(WARM, UPBEAT, LIVE, CYCLE, G_MAJ, C_MAJ, F_MAJ);
+
     //final static List<Integer> CHORDS = Arrays.asList(C_MAJ, D_MIN, E_MIN, F_MAJ, G_MAJ, A_MIN, B_DIM);
 
 
