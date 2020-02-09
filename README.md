@@ -8,7 +8,7 @@ Take a picture of something. The app calculates the vibes based on color composi
 
 This is a combination of the work in [ImagePicker](http://github.com/kevinalford/ImagePicker) and in [vibe-player](http://github.com/jedfras/vibe-player).
 
-The app uses the camera permission to take a picture, makes a `Palette` from the picture taken, and based on the warmth of the image (calculated from RGB values), chooses a path of ukulele recordings to play. Using music theory, the music chooses a new and organic sequence of chords every time.
+The app uses the camera permission to take a picture, makes a `Palette` from the picture taken, and based on the warmth of the image (calculated from RGB values), chooses a path of ukulele recordings to play, as well as the tempo. Using music theory, the app chooses a new and organic sequence of chords every time.
 
 ## Inspiration
 * ["Claire de Lune" by Harry Kalahiki](https://open.spotify.com/track/5Ms9J0bzaA4GJGM4SSm6q2)
