@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="243dp"
+        android:layout_height="322dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/app_name" />
+
+    <Button
+        android:id="@+id/bt_open"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="open camera"
+        android:contentDescription="@string/app_name"
+        />
+
+    <Button
+        android:id="@+id/color1"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Color 1" />
+
+    <Button
+        android:id="@+id/color2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Color 2" />
+
+    <Button
+        android:id="@+id/color3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Color 3" />
+
+
+</LinearLayout>
