@@ -10,6 +10,9 @@ import android.util.Log;
 
 public class MusicManager implements Runnable {
 
+    private AppCompatActivity context;
+    private int warmth;
+
     private boolean running;
     private boolean playing;
 
@@ -17,84 +20,57 @@ public class MusicManager implements Runnable {
     private int count;
 
     private MusicPlayer ukulelePlayer;
-    private MusicPlayer drumPlayer;
 
     private Chord chordLogic;
-    private boolean warmVibes = false;
+
+    private int[] weights;
+    private final int[] WEIGHTS_NORMAL = {50, 25, 17};
+    private final int[] WEIGHTS_WARM = {10, 25, 57};
 
     /**
-     * Manage playback (mood, tempo, rhythm)
-     * using `Chord` and keep time.
+     * Manage playback, manipulate vibes, and keep time.
      */
-    public MusicManager(AppCompatActivity context) {
+    public MusicManager(AppCompatActivity context, int warmth) {
+        this.context = context;
+        this.warmth = warmth;
         chordLogic = new Chord();
         running = false;
         playing = false;
 
-        if (!warmVibes) {
+        if (warmth > 0) {
+            ukulelePlayer = new MusicPlayer(context, Sounds.MELODIES_WARM);
+            weights = WEIGHTS_WARM;
+        } else {
             ukulelePlayer = new MusicPlayer(context, Sounds.MELODIES);
+            weights = WEIGHTS_NORMAL;
         }
-        else {
-            ukulelePlayer = new MusicPlayer(context, Sounds.WARMMELODIES);
-        }
-//        drumPlayer = new MusicPlayer(context, drumList);
     }
 
     @Override
     public void run() {
         running = true;
         playing = true;
-        int[] weights = {50,25,17};
+        int delay = this.warmth > 0 ? 6500 : 8500;
         while (running) {
             if (playing) {
                 ukulelePlayer.playChords(chordLogic.next(weights));
             }
             try {
-                Thread.sleep(8500);
+                Thread.sleep(delay);
             } catch (InterruptedException e) {
                 ukulelePlayer.release();
             }
         }
     }
 
-    /// Change the vibe
-    public void changeVibe(int warmth) {
-        if (warmth > 0){
-            warmVibes = true;
-        }
-        warmVibes = false;
-    }
-
-    /// Generates a random chord (for testing purposes)
-    private int[] randChord() {
-        Random rand = new Random();
-        int[] chord = new int[4];
-        for (int i = 0; i < chord.length; i++) {
-            chord[i] = rand.nextInt(8);
-        }
-        return chord;
-    }
-
-    /// Starts keeping time
+    /// Starts playback
     public void start() {
         playing = true;
     }
 
+    /// Stops playback
     public void stop() {
         playing = false;
-//        ukulelePlayer.release();
-    }
-
-    public void toggle() throws InterruptedException {
-        Log.d("playing?", this.playing + "");
-        if (this.playing) {
-            this.stop();
-        } else {
-            this.start();
-        }
-    }
-
-    private void setTempo(double bpm) {
     }
 
 }

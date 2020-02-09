@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize MusicManager and thread
-        manager = new MusicManager(this);
-
         //Assign Variable
         imageView = findViewById(R.id.image_view);
         btOpen = findViewById(R.id.bt_open);
@@ -139,9 +136,10 @@ public class MainActivity extends AppCompatActivity {
         int color3Green = (color3 >> 8) & 0xFF;
         int color3Blue = color3 & 0xFF;
         warmth += isWarm(color3Red, color3Green, color3Blue) ? 1 : -1;
+        // Log.d("warmth", warmth + "");
 
-        manager.changeVibe(warmth);
-
+        // Initialize MusicManager and thread
+        manager = new MusicManager(this, warmth);
         final Thread manThread = new Thread(manager);
         manThread.start();
     }

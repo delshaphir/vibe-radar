@@ -65,7 +65,6 @@ public class Sounds {
 
     final static List<int[]> MELODIES = Arrays.asList(C_MAJ, D_MIN, E_MIN, F_MAJ, G_MAJ, A_MIN, B_DIM);
 
-
     final static int WARM1 = R.raw.warm1;
     final static int WARM2 = R.raw.warm2;
     final static int WARM3 = R.raw.warm3;
@@ -91,9 +90,5 @@ public class Sounds {
     final static int[] CYCLE = {CYCLE1, CYCLE2, CYCLE3};
 
 
-    final static List<int[]> WARMMELODIES = Arrays.asList(WARM, UPBEAT, LIVE, CYCLE, G_MAJ, C_MAJ, F_MAJ);
-
-    //final static List<Integer> CHORDS = Arrays.asList(C_MAJ, D_MIN, E_MIN, F_MAJ, G_MAJ, A_MIN, B_DIM);
-
-
+    final static List<int[]> MELODIES_WARM = Arrays.asList(WARM, UPBEAT, LIVE, CYCLE, G_MAJ, C_MAJ, F_MAJ);
 }
