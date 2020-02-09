@@ -50,6 +50,10 @@ public class MusicManager implements Runnable {
         }
     }
 
+    /// Change the vibe
+    public void changeVibe(int warmth) {
+    }
+
     /// Generates a random chord (for testing purposes)
     private int[] randChord() {
         Random rand = new Random();
