@@ -1,4 +1,4 @@
-package com.example.imagepicker;
+package com.example.viberadar;
 
 import org.junit.Test;
 
